@@ -243,6 +243,14 @@ ul.playlist li .track-content .player-playlist {
   transition:all 0.3s ease-in-out;
 }
 
+ul.playlist li .track-content .remove-track {
+  cursor: pointer;
+}
+
+ul.playlist li .track-content .remove-track:hover {
+  color: #84bd00;
+}
+
 ul.playlist li .track-content .player-playlist:hover {
   background-color: rgba(0,0,0,0.65);
 }

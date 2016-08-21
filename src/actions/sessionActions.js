@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import SpotifyApi from '../api/SpotifyApi';
+import appSettings from '../settings/appSettings';
 
 export function receiveSearchSuggestions(tracks) {
   return {type: types.SEARCH_RECEIVE_SEARCH_SUGGESTIONS, tracks};
@@ -13,8 +14,16 @@ export function receiveRecommendations(recommendedTracks, clearList) {
   return {type: types.SESSION_RECEIVE_RECOMMENDATIONS, recommendedTracks, clearList};
 }
 
-export function receiveTrackAddedToPlaylist(track) {
+export function addTrackToPlaylist(track) {
   return {type: types.PLAYLIST_ADD_TRACK, track};
+}
+
+export function removeTrackFromPlaylist(trackId) {
+  return {type: types.PLAYLIST_REMOVE_TRACK, trackId};
+}
+
+export function exportedPlaylist() {
+  return {type: types.PLAYLIST_EXPORT};
 }
 
 
@@ -60,6 +69,7 @@ export function getRecommendations(track, limit, clearList) {
   };
 }
 
+
 function calculateNewAudioFeatures(newAudioFeatures, currentAudioFeatures) {
   let audioFeatures = {};
 
@@ -84,14 +94,25 @@ function fillOptionsToTarget(options, audioFeatures){
   }
 }
 
-export function addTrackToPlaylist(track) {
-  return function (dispatch) {
-    dispatch(receiveTrackAddedToPlaylist(track));
+export function exportPlaylist() {
+  return function(dispatch, getState) {
+    const spotifyApi = SpotifyApi.instance;
+
+    const userId = getState().login.user.id;
+
+    spotifyApi.createPlaylist(userId, {public: false, name: appSettings.playlistName})
+      .then(playlist => {
+        const playlistTracks = getState().session.playlist;
+        spotifyApi.addTracksToPlaylist(userId, playlist.id, getTrackUris(playlistTracks))
+          .then(response => {
+            dispatch(exportedPlaylist());
+          });
+      });
   };
 }
 
-export function removeTrackFromPlaylist(trackId) {
-  return {type: types.PLAYLIST_REMOVE_TRACK, trackId};
+function getTrackUris(tracks) {
+  return tracks.map(track => {return track.uri; }).join(",");
 }
 
 

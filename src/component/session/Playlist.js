@@ -13,6 +13,12 @@ class Playlist extends React.Component {
     return (
       <div>
         <div>
+          {playlistTracks.length > 0 ? 
+            <p>
+              <button className="btn btn-spotify" onClick={actions.exportPlaylist}>Export</button>
+            </p>
+          : null}
+
           <ul className="playlist">
             {playlistTracks.length > 0 ? playlistTracks.map(track =>
               <PlaylistTrack key={track.id} track={track} actions={actions} />

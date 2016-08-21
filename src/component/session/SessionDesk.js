@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {addTrackToPlaylist, getRecommendations, removeTrackFromPlaylist} from '../../actions/sessionActions';
+import {addTrackToPlaylist, getRecommendations, removeTrackFromPlaylist, exportPlaylist} from '../../actions/sessionActions';
 import SearchTrack from './SearchTrack';
 import TrackList from './TrackList';
 import Playlist from './Playlist';
@@ -21,6 +21,10 @@ class SessionDesk extends React.Component {
     this.props.dispatch(removeTrackFromPlaylist(trackId));
   }
 
+  exportPlaylist() {
+    this.props.dispatch(exportPlaylist());
+  }
+
   registerAudio(elem) {
     this.state.audios.push(elem);
   }
@@ -34,9 +38,10 @@ class SessionDesk extends React.Component {
   render() {
     const actions = {
       addToPlaylist: this.addToPlaylist.bind(this),
-      removeFromPlaylist: this.removeFromPlaylist(this),
+      removeFromPlaylist: this.removeFromPlaylist.bind(this),
       registerAudio: this.registerAudio.bind(this),
-      stopAllAudios: this.stopAllAudios.bind(this)
+      stopAllAudios: this.stopAllAudios.bind(this),
+      exportPlaylist: this.exportPlaylist.bind(this)
     };
 
     return (<div>

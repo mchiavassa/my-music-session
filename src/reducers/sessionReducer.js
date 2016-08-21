@@ -64,16 +64,21 @@ export default function sessionReducer(state = initialState.session, action) {
 
     case types.PLAYLIST_REMOVE_TRACK:
     {
-      // let removedTrack = Object.assign({}, state.recommendedTracks.filter(track => track.id == action.trackId)[0]);
-      // removedTrack.added = false;
-      // removedTrack.removed = true;
-      //
-      // return Object.assign({}, state, {
-      //   playlist: [...state.playlist.filter(track => track.id !== action.trackId)],
-      //   recommendedTracks: [...state.recommendedTracks.filter(track => track.id != action.trackId), removedTrack]
-      // });
-      return state;
+      let removedTrack = Object.assign({}, state.recommendedTracks.filter(track => track.id == action.trackId)[0]);
+      removedTrack.added = false;
+      removedTrack.removed = true;
+
+      return Object.assign({}, state, {
+        playlist: [...state.playlist.filter(track => track.id !== action.trackId)],
+        recommendedTracks: [...state.recommendedTracks.filter(track => track.id != action.trackId), removedTrack]
+      });
     }
+
+    case types.PLAYLIST_EXPORT:
+      return Object.assign({}, state, {
+        playlist: [],
+        recommendedTracks: []
+      });
 
     default:
       return state;
