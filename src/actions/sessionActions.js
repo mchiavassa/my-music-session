@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import SpotifyApi from '../api/SpotifyApi';
 import appSettings from '../settings/appSettings';
+import toastr from 'toastr';
 
 export function receiveSearchSuggestions(tracks) {
   return {type: types.SEARCH_RECEIVE_SEARCH_SUGGESTIONS, tracks};
@@ -34,6 +35,7 @@ export function searchTrack(query) {
       .then(data  => {
         dispatch(receiveSearchSuggestions(data.tracks.items));
       }).catch(error => {
+        toastr.error("There was an error trying to search for tracks. Try again later.");
         throw(error);
       });
   };
@@ -63,6 +65,7 @@ export function getRecommendations(track, limit, clearList) {
         spotifyApi.getRecommendations(options).then(response  => {
           dispatch(receiveRecommendations(response.tracks.filter(t => t.id != track.id), clearList));
         }).catch(error => {
+          toastr.error("There was an error trying get recommended tracks. Try again later.");
           throw(error);
         });
       });
@@ -106,7 +109,12 @@ export function exportPlaylist() {
         spotifyApi.addTracksToPlaylist(userId, playlist.id, getTrackUris(playlistTracks))
           .then(response => {
             dispatch(exportedPlaylist());
+            toastr.success("Playlist exported! Go check on your Spotify!");
           });
+      })
+      .catch(error => {
+        toastr.error("There was an error trying to export the playlist. Try again later.");
+        throw(error);
       });
   };
 }

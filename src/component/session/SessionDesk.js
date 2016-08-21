@@ -4,6 +4,7 @@ import {addTrackToPlaylist, getRecommendations, removeTrackFromPlaylist, exportP
 import SearchTrack from './SearchTrack';
 import TrackList from './TrackList';
 import Playlist from './Playlist';
+import toastr from 'toastr';
 
 class SessionDesk extends React.Component {
   constructor(props, context) {
@@ -19,6 +20,7 @@ class SessionDesk extends React.Component {
 
   removeFromPlaylist(trackId) {
     this.props.dispatch(removeTrackFromPlaylist(trackId));
+    toastr.success("Track removed!");
   }
 
   exportPlaylist() {
