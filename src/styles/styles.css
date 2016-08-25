@@ -8,11 +8,27 @@ body {
   margin-top: 10px;
 }
 
+.loading {
+  background: #84bd00;
+  background: -webkit-linear-gradient(left, #84bd00 ,#84bd00 , #232323);
+  background: -o-linear-gradient(right, #84bd00, #84bd00, #232323);
+  background: -moz-linear-gradient(right, #84bd00, #84bd00, #232323);
+  background: linear-gradient(to right, #84bd00 , #84bd00, #232323);
+  height: 4px !important;
+  border: none;
+}
+
 /*** Header Component ***/
+
 .header {
   color: #fff;
   border: 0;
   border-radius: 0;
+}
+
+.logo {
+  color: #84bd00;
+  font-size: 1.4em;
 }
 
 .header .navbar-header{
@@ -25,6 +41,11 @@ body {
 .btn.btn-spotify {
   background-color: #84bd00;
   color: #FFF;
+}
+
+.user-login {
+  color: #84bd00;
+  font-weight: bold;
 }
 
 
@@ -48,6 +69,7 @@ input.search {
 /*** React Autosuggest Component ***/
 
 .react-autosuggest__container {
+  text-align: center;
   position: relative;
   margin-bottom: 10px;
 }
@@ -73,8 +95,9 @@ input.search {
 
 .react-autosuggest__suggestions-container {
   position: absolute;
+  text-align: left;
   top: 60px;
-  width: 80%;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -188,6 +211,24 @@ input.search {
   top: 50px;
 }
 
+.box-enter {
+  opacity: 0.01;
+}
+
+.box.box-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+.box-leave {
+  opacity: 1;
+}
+
+.box-leave.box-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease;
+}
+
 
 /*** Player Component ***/
 
@@ -197,6 +238,16 @@ input.search {
 
 
 /*** Playlist Component ***/
+
+.playlist-header h3 {
+  float: left;
+  margin: 0;
+}
+
+.playlist-header button {
+  float: right;
+  margin-bottom: 5px;
+}
 
 ul.playlist {
   list-style-type: none;

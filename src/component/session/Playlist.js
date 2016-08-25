@@ -13,10 +13,11 @@ class Playlist extends React.Component {
     return (
       <div>
         <div>
-          {playlistTracks.length > 0 ? 
-            <p>
-              <button className="btn btn-spotify" onClick={actions.exportPlaylist}>Export</button>
-            </p>
+          {playlistTracks.length > 0 ?
+            <div className="playlist-header">
+              <h3>Playlist</h3>
+              <button className="btn btn-spotify" onClick={actions.exportPlaylist}>Export it!</button>
+            </div>
           : null}
 
           <ul className="playlist">

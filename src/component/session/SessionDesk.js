@@ -20,7 +20,7 @@ class SessionDesk extends React.Component {
 
   removeFromPlaylist(trackId) {
     this.props.dispatch(removeTrackFromPlaylist(trackId));
-    toastr.success("Track removed!");
+    toastr.success('Track removed!');
   }
 
   exportPlaylist() {

@@ -10,6 +10,7 @@ export default function sessionReducer(state = initialState.session, action) {
     {
       if (action.clearList) {
         return Object.assign({}, state, {
+          loading: false,
           autosuggestTracks: [],
           recommendedTracks: action.recommendedTracks
         });
@@ -24,6 +25,7 @@ export default function sessionReducer(state = initialState.session, action) {
         });
 
         return Object.assign({}, state, {
+          loading: false,
           recommendedTracks: [...newRecommendedTracks].concat(state.recommendedTracks)
         });
       }

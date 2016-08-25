@@ -68,17 +68,17 @@ class Player extends React.Component {
       <div>
         { !this.state.isPlaying && !this.state.isLoading ?
           <div className={"player " + this.props.className || ""} onClick={this.play.bind(this)}>
-            <span className="glyphicons glyphicons-play">Play</span>
+            <span className="fa fa-2x fa-play"></span>
           </div> : null
         }
         {this.state.isPlaying && !this.state.isLoading ?
           <div className={"player " + this.props.className || ""} onClick={this.stop.bind(this)}>
-            <span className="glyphicons glyphicons-pause">Pause</span>
+            <span className="fa fa-2x fa-pause"></span>
           </div> : null
         }
         {this.state.isLoading ?
           <div className={"player " + this.props.className || ""}>
-            <span className="glyphicons glyphicons-clock">Loading...</span>
+            <span className="fa fa-2x fa-clock"></span>
           </div> : null
         }
         <audio ref="audio" src={this.props.source} preload="none"/>

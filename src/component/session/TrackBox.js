@@ -5,8 +5,8 @@ const TrackBox = ({track, addToPlaylist, stopAllAudios, registerAudio}) => {
   return (
     <li>
       {track.album.images.length > 2 ?
-        <img src={track.album.images[1].url} alt={track.album.name} /> :
-        <img src="img/track-default.png" alt={track.album.name} width="150" height="150"/>
+        <img src={track.album.images[1].url} alt={track.album.name} width="150" height="150" /> :
+        <img src="img/track-default.png" alt={track.album.name} width="150" height="150" />
       }
       <div className="caption">
         <div className="blur"></div>
@@ -19,7 +19,7 @@ const TrackBox = ({track, addToPlaylist, stopAllAudios, registerAudio}) => {
                 stopAll={stopAllAudios}
               />
             </div>
-            <div className="col-md-6 btn-action" onClick={() => addToPlaylist(track)}>Add</div>
+            <div className="col-md-6 btn-action" onClick={() => addToPlaylist(track)}><span className="fa fa-2x fa-plus"></span></div>
           </div>
           <h1>{track.name}</h1>
           <p>{track.artists[0].name}</p>

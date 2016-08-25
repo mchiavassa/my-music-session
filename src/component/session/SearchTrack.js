@@ -53,7 +53,8 @@ class SearchTrack extends React.Component {
       placeholder: 'Look for one of your favourite songs...',
       value: query,
       onChange: this.onChange,
-      className: 'search'
+      className: 'search',
+      ref: 'search-input'
     };
 
     return (

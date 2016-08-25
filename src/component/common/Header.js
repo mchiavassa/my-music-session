@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <nav className="navbar header">
       <div className="container-fluid">
-        <div className="navbar-header">
-            Music Sessions
+        <div className="navbar-header logo">
+            My Music Session
         </div>
         <div className="navbar-header navbar-right">
           <Login />

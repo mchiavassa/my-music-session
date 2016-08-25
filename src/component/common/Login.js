@@ -31,7 +31,7 @@ class Login extends React.Component {
 
   render() {
     const loginRender = this.props.login.isAuthenticated ?
-      <strong>{this.props.login.user.display_name}</strong> :
+      <div>Hi <span className="user-login">{this.props.login.user.display_name}</span> !</div> :
       <button type="button" className="btn btn-spotify" onClick={this.onClick}>
         Connect with Spotify
       </button>;

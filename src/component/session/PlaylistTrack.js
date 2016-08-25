@@ -16,7 +16,9 @@ const PlaylistTrack = ({track, actions}) => {
         </div>
         <h1>{track.name}</h1>
         <h2>{track.artists[0].name}</h2>
-        <p className="remove-track" onClick={() => actions.removeFromPlaylist(track.id)}>Remove</p>
+        <p className="remove-track" onClick={() => actions.removeFromPlaylist(track.id)}>
+          <span className="fa fa-remove"></span>
+        </p>
       </div>
     </li>
   );
