@@ -31,10 +31,10 @@ class Login extends React.Component {
 
   render() {
     const loginRender = this.props.login.isAuthenticated ?
-      <div>Hi <span className="user-login">{this.props.login.user.display_name}</span> !</div> :
-      <button type="button" className="btn btn-spotify" onClick={this.onClick}>
-        Connect with Spotify
-      </button>;
+      <div className="user-login" >Hi <span>{this.props.login.user.display_name}</span> !</div> :
+      <a className="btn btn-spotify" onClick={this.onClick}>
+        <span className="fa fa-2x fa-spotify"></span> <span>Connect with Spotify</span>
+      </a>;
 
     return (<div>{loginRender}</div>);
   }

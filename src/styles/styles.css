@@ -9,13 +9,25 @@ body {
 }
 
 .loading {
-  background: #84bd00;
-  background: -webkit-linear-gradient(left, #84bd00 ,#84bd00 , #232323);
-  background: -o-linear-gradient(right, #84bd00, #84bd00, #232323);
-  background: -moz-linear-gradient(right, #84bd00, #84bd00, #232323);
-  background: linear-gradient(to right, #84bd00 , #84bd00, #232323);
+  background: #36A9E1;
+  background: -webkit-linear-gradient(left, #36A9E1 , #232323);
+  background: -o-linear-gradient(right, #36A9E1, #232323);
+  background: -moz-linear-gradient(right, #36A9E1, #232323);
+  background: linear-gradient(to right, #36A9E1, #232323);
   height: 4px !important;
   border: none;
+}
+
+.footer {
+  bottom: 0;
+  height: 120px;
+  opacity: 0.7;
+  background-color: #36A9E1;
+}
+
+.footer .footer-content{
+  text-align: center;
+  padding: 10px;
 }
 
 /*** Header Component ***/
@@ -27,7 +39,7 @@ body {
 }
 
 .logo {
-  color: #84bd00;
+  color: #36A9E1;
   font-size: 1.4em;
 }
 
@@ -39,12 +51,16 @@ body {
 /*** Login Component ***/
 
 .btn.btn-spotify {
-  background-color: #84bd00;
+  background-color: #36A9E1;
   color: #FFF;
 }
 
-.user-login {
-  color: #84bd00;
+.btn.btn-spotify span{
+  vertical-align: middle;
+}
+
+.user-login span {
+  color: #36A9E1;
   font-weight: bold;
 }
 
@@ -118,7 +134,7 @@ input.search {
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: #84bd00;
+  background-color: #36A9E1;
   color: #FFF;
 }
 
@@ -198,7 +214,7 @@ input.search {
 }
 
 .track-list .caption-text .btn-action:hover {
-  color: #84bd00;
+  color: #36A9E1;
 }
 
 .track-list .caption-text {
@@ -239,11 +255,6 @@ input.search {
 
 /*** Playlist Component ***/
 
-.playlist-header h3 {
-  float: left;
-  margin: 0;
-}
-
 .playlist-header button {
   float: right;
   margin-bottom: 5px;
@@ -265,13 +276,21 @@ ul.playlist li .track-content img {
 }
 
 ul.playlist li .track-content h1 {
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 5px 0 0 0;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 ul.playlist li .track-content h2 {
   font-size: 0.9em;
-  color: #84bd00;
+  color: #36A9E1;
   margin: 5px 0 5px 0;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul.playlist li .track-content .album-thumb {
@@ -299,7 +318,7 @@ ul.playlist li .track-content .remove-track {
 }
 
 ul.playlist li .track-content .remove-track:hover {
-  color: #84bd00;
+  color: #36A9E1;
 }
 
 ul.playlist li .track-content .player-playlist:hover {

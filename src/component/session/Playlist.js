@@ -15,8 +15,9 @@ class Playlist extends React.Component {
         <div>
           {playlistTracks.length > 0 ?
             <div className="playlist-header">
-              <h3>Playlist</h3>
-              <button className="btn btn-spotify" onClick={actions.exportPlaylist}>Export it!</button>
+              <button className="btn btn-spotify" onClick={actions.exportPlaylist}>
+                <span className="fa fa-spotify"></span> Export it
+              </button>
             </div>
           : null}
 
